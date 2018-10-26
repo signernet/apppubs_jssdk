@@ -1,5 +1,5 @@
 
-##Apppubs-jssdk使用手册
+## Apppubs-jssdk使用手册
 
 | TIME         | VERSION  | CHANGE | 
 | ------------|---------|----------|
@@ -13,11 +13,11 @@
 | 2018-2-27  | v1.0.0    |  新增图片显示|
 
 
-##概述
+## 概述
 apppubs js-sdk 是apppubs提供给基于apppubs的网页开发者的网页开发工具包。
 通过此sdk，开发者可以实现获取userid，控制标题栏菜单等功能。
 
-##使用方法
+## 使用方法
   1.将apppubs_jssdk.js文件引入.
   
   2.调用apppubs.init()方法后即可调用其他功能接口
@@ -28,8 +28,8 @@ apppubs js-sdk 是apppubs提供给基于apppubs的网页开发者的网页开发
 
 
 4.请使用ios代码版本在110200或者android代码版本在210200以上的客户端进行测试。
-##接口
-###获取userid
+## 接口
+### 获取userid
 from jssdk:v0.0.1 android:210100;ios:110100
 
     apppubs.getUserInfo({
@@ -38,19 +38,19 @@ from jssdk:v0.0.1 android:210100;ios:110100
           }
       })
 
-###显示控制菜单
+### 显示控制菜单
 from jssdk:v0.0.1 android:210100;ios:110100
     //隐藏刷新按钮
     apppubs.hideMenuItems(["menu_item_refresh"]);
-###打开新窗口
+### 打开新窗口
 from jssdk:v0.0.1 android:210100;ios:110100
 
     apppubs.openWindow("http://xxx.com");
-###关闭窗口
+### 关闭窗口
 from jssdk:v0.0.1 android:210100;ios:110100
 
      apppubs.closeWindow();
-###选择图片
+### 选择图片
 from jssdk:v0.0.1 android:210100;ios:110100
 
       apppubs.chooseImage({
@@ -63,7 +63,7 @@ from jssdk:v0.0.1 android:210100;ios:110100
               imagesDiv.innerHTML = htmlStr;
           }
     })
-###获取设备id
+### 获取设备id
 from jssdk:v0.0.1 android:210100;ios:110100
 
     apppubs.getDeviceId({
@@ -72,7 +72,7 @@ from jssdk:v0.0.1 android:210100;ios:110100
             }
     })
 
-###获取用户信息
+### 获取用户信息
 from jssdk:v1.0.0 android:210300;ios:110300
 
 调用示例：
@@ -92,7 +92,7 @@ success回调对象格式:
 字段说明
 
 略
-###打开二维码扫描
+### 打开二维码扫描
 from jssdk:v0.0.1 android:210100;ios:110100
 
 apppubs.scanQRCode()
@@ -119,14 +119,14 @@ apppubs.scanQRCode()
  {"success":true,"result":{"msg":"扫描结果"}}
  ````
  
-###切换app
+### 切换app
 from jssdk:v0.0.1 android:210100;ios:110100
 
     apppubs.changeApp("http://123.56.46.218/,U1471251810276")
 
 server和uid用“，”分隔作为参数掺入changeApp方法
 
-###支付宝支付
+### 支付宝支付
 from jssdk:v0.0.1 android:210100;ios:110100
 
   apppubs.alipay(data);
@@ -155,7 +155,7 @@ orderstr参考 https://docs.open.alipay.com/54/106370/
 ````
 
 ----
-###微信支付
+### 微信支付
 from jssdk:v0.0.1 android:210100;ios:110100
 
   apppubs.wxpay(data);
@@ -164,7 +164,7 @@ from jssdk:v0.0.1 android:210100;ios:110100
 	data:json参考 https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2
 	success:支付回调方法
 	
-###获取地理位置
+### 获取地理位置
 from jssdk:v0.0.1 android:210100;ios:110100
 
 apppubs.amap(data);
@@ -183,7 +183,7 @@ success回调对象格式:
 {"latitude":32.3333,"longtitude":33.33333}
 ````
 
-###手写签名
+### 手写签名
 from jssdk:v0.0.2 android:210200;ios:110200
 
 调用示例：
@@ -239,7 +239,7 @@ success回调对象格式:
 | image |base64编码后的png格式的图片字符串,有且仅当type==1|
 
 
-###选择人员
+### 选择人员
 from jssdk:v0.0.2 android:210200;ios:110200
 
 调用示例：
@@ -438,7 +438,7 @@ apppubs.userPicker({
 |items[i].name|用户名称|
 
 
-####选择部门
+#### 选择部门
 from jssdk:v0.0.2 android:210200;ios:110200
 
 调用示例：
@@ -623,7 +623,7 @@ success回调对象格式:
 
 略
 
-###显示图片
+### 显示图片
 from jssdk:v1.0.0 android:210202;ios:110204
 
 调用示例：
@@ -653,7 +653,7 @@ success回调对象格式:
 略
 
 
-###版本检查
+### 版本检查
 from jssdk:v1.0.0 android:210300;ios:110300
 
 调用示例：
