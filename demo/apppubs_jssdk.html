@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://youyuenet.cn:3721/test/jsBridge.html -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="../jssdk/apppubs_jssdk.js"></script>
+</head>
+
+<body>
+  apppubs js-sdk 演示<br>
+  <button onclick="getUserInfo()">获取userid</button>
+  <button onclick="hideMenuItems()">隐藏刷新按钮</button>
+  <button><a href="demo/index.html">打开演示</a></button>
+  <button><a href="http://www.baidu.com/">本页面打开百度</a></button>
+  <button onclick="openWindow()">打开百度</button>
+  <button onclick="closeWindow()">关闭窗口</button>
+  <button onclick="chooseImage()">选择图片</button>
+  <button onclick="getDeviceId()">获取设备id</button>
+  <button onclick="getUserInfo()">获取用户信息</button>
+  <button onclick="scanQRCode()">二维码扫描</button>
+  <button onclick="alipay()">支付宝</button>
+  <button onclick="amap()">定位</button>
+  <button onclick="handwriting()">手写弹窗</button>
+  <button onclick="userpicker()">选择用户(多选)</button>
+  <button onclick="userpicker1()">选择用户(单选)</button>
+  <button onclick="deptpicker()">选择部门(多选)</button>
+  <button onclick="deptpicker1()">选择部门(单选)</button>
+  <button onclick="getAddress()">获取当前选定的地理位置</button>
+  <button onclick="displayImg()">显示多图</button>
+  <button onclick="checkVersion()">版本检查</button>
+  <button onclick="timepicker()">选择日期</button>
+  <button onclick="alert('good bye')">alert</button>
+  <hr style="border:1 dashed #333333" color=#987cb9 SIZE=1>
+  <a href="http://www.jianshu.com/?previousurl=main">打开此链接后按返回按钮window关闭</a><br>
+  <a href="http://www.jianshu.com/?previousurl=http://www.baidu.com/">打开此链接后按返回按钮跳转到百度首页</a>
+  <a href="http://d8611005.ngrok.io/test/demo.wpt">wps示例文档</a>
+    <a href="http://d8611005.ngrok.io/test/demo.xlsx">excel示例文档</a>
+  <div>
+    <span id="userid_span"></span>
+    <img id="img" width="100%" />
+    <span id="text_span"></span>
+  </div>
+  <div id="images">
+
+
+  </div>
+  <input type="text" id="base64Img" />
+  <script type="text/javascript">
+    function getUserInfo() {
+      apppubs.getUserInfo({
+        success: function(res) {
+          document.getElementById("userid_span").innerHTML = "userid：" + res;
+        }
+      })
+    }
+
+    //隐藏刷新按钮
+    function hideMenuItems() {
+      apppubs.hideMenuItems(["menu_item_refresh"]);
+    }
+
+    //打开网页
+    function openWindow() {
+      apppubs.openWindow("http://baidu.com/");
+    }
+
+    //关闭当前窗口
+    function closeWindow() {
+      apppubs.closeWindow();
+    }
+
+    //选择图片
+    function chooseImage() {
+      apppubs.chooseImage({
+        success: function(res) {
+          var imagesDiv = document.getElementById("images");
+          var htmlStr = "";
+          for (var i = 0; i < res.length; i++) {
+            htmlStr += "<img width='100%' src='data:image/png;base64," + res[i] + "'>"
+          }
+          imagesDiv.innerHTML = htmlStr;
+        }
+      })
+    }
+
+    //获取设备id
+    function getDeviceId() {
+      apppubs.getDeviceId({
+        success: function(res) {
+          document.getElementById("text_span").innerHTML = res;
+        }
+      })
+    }
+
+    //打开二维码扫描
+    function scanQRCode() {
+      apppubs.scanQRCode({
+        selfResolve: false,
+        success: function(res) {
+          alert("扫描结果" + res.result.msg);
+        }
+      })
+    }
+    //支付宝支付
+    function alipay() {
+      apppubs.alipay({
+        orderstr: 'app_id=2017110709789252&biz_content={"subject"%3A"1"%2C"seller_id"%3A""%2C"total_amount"%3A"0.01"%2C"product_code"%3A"QUICK_MSECURITY_PAY"%2C"out_trade_no"%3A"H37QUXASS1W6PNZ"%2C"timeout_express"%3A"30m"%2C"body"%3A"%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"}&charset=utf-8&method=alipay.trade.app.pay&sign_type=RSA2&timestamp=2017-11-13 17%3A58%3A49&version=1.0&sign=hmSz8HiW82D98SrfpGfR95D8Fq48pOy3OTZyyYnqSEC3Bk7zY84YClVZ4J%2BwaK42hqhPntdsn1V0SZIS%2F3cLZ41bfkwVxGmS44jAKc4AiKsMBZwTHTZV7bw3JCTXp%2Ba1UrlZ8MjZ57co5xEJe7JjDF26R3cC1fexducfLxVvpy3YiPEdpk7xDO7m3VnkyGpGdV3fNSPTe3GM9BqmSoy4Ta0l66pYWSnN89ozkMmhOwqe7MdGdetmg%2BAfJ%2Bhq96SWpUQWdlwN9%2FnyFh2ZAflN4QUyXnyZDTTXxYxMQ8zirkHzEdj%2BWIoY65HUFMwNGiItZPvmMOlUT6AaDO%2BBo6e4lA%3D%3D',
+        success: function(obj) {
+          alert(obj);
+        }
+      });
+    }
+
+    function amap() {
+      apppubs.amap({
+        success: function(obj) {
+          console.log(obj)
+          alert(obj)
+        }
+      });
+    }
+
+    function handwriting() {
+      apppubs.handwriting({
+        data: {
+          "handwritingTitle": "手写意见",
+          "inputTitle": "输入意见",
+          "handwritingDes": "请书写意见",
+          "inputDes": "请点击入意见",
+          "doneTxt": "输入完成",
+          "themeColor": "#1874CD",
+          "commonWords": ["同意", "不同意", "很好", "干得漂亮", "待定", "还需要讨论"],
+          "defaultTxt": "统一回复"
+        },
+        success: function(obj) {
+          console.log(obj)
+          alert("类型:" + (obj.result.type == 1 ? "手写" : "输入"))
+          if (obj.result.type == 1) {
+            var base46Img = obj.result.image;
+            var imagesDiv = document.getElementById("images");
+            var htmlStr = "<img width='100%' src='data:image/png;base64," + base46Img + "'>"
+            imagesDiv.innerHTML = htmlStr;
+            document.getElementById("base64Img").value = base46Img
+          } else {
+            document.getElementById("base64Img").value = obj.result.text
+          }
+
+        }
+      });
+    }
+
+    function userpicker() {
+      apppubs.userPicker({
+        data: {
+          "selectMode": 1,
+          "deptsURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=depts",
+          "usersURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=users",
+          "searchURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=searchURL",
+          "rootDeptId": "001",
+          "preIds":"001,1211"
+        },
+        success: function(obj) {
+          alert(obj.result.items[0].id + ":" + obj.result.items[0].name)
+        }
+      });
+    }
+
+    function userpicker1() {
+      apppubs.userPicker({
+        data: {
+          "selectMode": 0,
+          "deptsURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=depts",
+          "usersURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=users",
+          "searchURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=searchURL",
+          "rootDeptId": "001",
+          "preIds":"001,1211"
+        },
+        success: function(obj) {
+          alert(obj.result.items[0].id + ":" + obj.result.items[0].name)
+        }
+      });
+    }
+
+    function deptpicker() {
+      apppubs.deptPicker({
+        data: {
+          "selectMode": 1,
+          "deptsURL": "https://moa.sdic.com.cn/treeServlet?uri=depts",
+          "searchURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=deptsearch",
+          "rootDeptId": "001",
+          "preIds":"001033,001"
+        },
+        success: function(obj) {
+          alert(obj.result.items[0].id + ":" + obj.result.items[0].name)
+        }
+      });
+    }
+
+    function deptpicker1() {
+      apppubs.deptPicker({
+        data: {
+          "selectMode": 0,
+          "deptsURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=depts",
+          "searchURL": "http://result.eolinker.com/gN1zjDlc87a75d671a2d954f809ebcdd19e7698dc2478fa?uri=deptsearch",
+          "rootDeptId": "001"
+        },
+        success: function(obj) {
+          alert(obj.result.items[0].id + ":" + obj.result.items[0].name)
+        }
+      });
+    }
+
+    function getAddress() {
+      apppubs.getAddress({
+        success: function(obj) {
+          alert(obj.result.name + ":" + obj.result.code)
+        }
+      });
+    }
+
+    function displayImg() {
+      apppubs.displayImg({
+        data: {
+          imgs: [
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1519745589880&di=8ebe5a79927136d551f2ec789bcc3d2c&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fbaike%2Fpic%2Fitem%2Fe1fe9925bc315c608f63886c87b1cb13485477bb.jpg",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1519745590003&di=4846bf776eb4df267666a93680e1fc6e&imgtype=0&src=http%3A%2F%2Fimg.tupianzj.com%2Fuploads%2Fallimg%2F160725%2F16-160H5164337.jpg",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1519745638860&di=f2a6fbb99a76aa345fb522bd9fb77844&imgtype=0&src=http%3A%2F%2Fp3.gexing.com%2FG1%2FM00%2FD6%2F96%2FrBACJlZsDyjxNgVNAAHrfE50YJY389_600x.jpg"
+          ]
+        }
+      });
+    }
+
+    function checkVersion() {
+      apppubs.checkVersion();
+    }
+
+    function getUserInfo() {
+      apppubs.getUserInfo({
+        success: function(data) {
+          alert("userId:" + data.result.userId + "username:" + data.result.username + "truename:" + data.result.truename + "avatarUrl:" + data.result.avatarUrl);
+        }
+      });
+    }
+
+    function timepicker() {
+      apppubs.timePicker({
+        data: {},
+        success: function(res) {
+          alert(res.result.time);
+        }
+      });
+    }
+  </script>
+
+
+</body>
+
+</html>
