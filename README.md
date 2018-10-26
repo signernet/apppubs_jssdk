@@ -1,5 +1,6 @@
 
 ##Apppubs-jssdk使用手册##
+
 | TIME         | VERSION  | CHANGE | 
 | ------------|---------|----------|
 | 2016-07-19  | v0.0.1 dev   |  初始化|
@@ -17,7 +18,7 @@ apppubs js-sdk 是apppubs提供给基于apppubs的网页开发者的网页开发
 通过此sdk，开发者可以实现获取userid，控制标题栏菜单等功能。
 
 ##使用方法##
-  1.将japppubs.js文件引入到文件 下载地址：https://oe9s638ox.qnssl.com/apppubs\_jssdk\_v1.0.0.js
+  1.将apppubs_jssdk.js文件引入.
   
   2.调用apppubs.init()方法后即可调用其他功能接口
   
@@ -25,7 +26,6 @@ apppubs js-sdk 是apppubs提供给基于apppubs的网页开发者的网页开发
   
   	apppubs.init(data,callback)
 
-示例:https://oe9s638ox.qnssl.com/apppubs\_jssdk\_v1.0.0.html
 
 4.请使用ios代码版本在110200或者android代码版本在210200以上的客户端进行测试。
 ##接口##
