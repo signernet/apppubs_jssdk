@@ -319,11 +319,13 @@ preIds     | 已选择用户id，","分隔
     "result": {
         "items": [{
                 "id": "001",
-                "name": "张三丰"
+                "name": "张三丰",
+                "extra":"附加字段"
             },
             {
                 "id": "002",
-                "name": "张翠山"
+                "name": "张翠山",
+                "extra":"附加字段"
             }
         ]
     }
@@ -394,15 +396,18 @@ deptId | 组织id
         "items": [
             {
                 "id": "001",
-                "name": "张三丰"
+                "name": "张三丰",
+                "extra":"附加字段"
             },
             {
                 "id": "001",
-                "name": "张翠山"
+                "name": "张翠山",
+                "extra":"附加字段"
             },
             {
                 "id": "003",
-                "name": "张无忌"
+                "name": "张无忌",
+                "extra":"附加字段"
             }
         ]
     },
@@ -416,6 +421,8 @@ deptId | 组织id
 ------------- | ----
 items[i].id   | 用户id
 items[i].name | 用户名称
+items[i].extra | 附加字段
+
 
 **searchURL** 地址：search_users 方式：post 响应类型：json
 
@@ -440,17 +447,20 @@ pageNum  | 当前页面 pageNum >= 1
             {
                 "id": "001",
                 "name": "张三丰",
-                "deptName": "总公司"
+                "deptName": "总公司",
+                "extra":"附加字段"
             },
             {
                 "id": "002",
                 "name": "张翠山",
-                "deptName": "分公司"
+                "deptName": "分公司",
+                "extra":"附加字段"
             },
             {
                 "id": "003",
                 "name": "张无忌",
-                "deptName": "部门"
+                "deptName": "部门",
+                "extra":"附加字段"
             }
         ]
     },
@@ -464,6 +474,7 @@ pageNum  | 当前页面 pageNum >= 1
 ------------- | ----
 items[i].id   | 用户id
 items[i].name | 用户名称
+items[i].extra | 附加字段
 
 ### 选择部门
 
