@@ -457,8 +457,37 @@
           }
         )
       }
+    },
+    startOCR: function(data) {
+      if (this.vars.browserType == 1) {
+        this.vars.bridge.callHandler('startOCR', data.data, function responseCallback(responseData) {
+          data.success(responseData);
+          console.log("JS received response:", responseData);
+        })
+      } else {
+        window.WebViewJavascriptBridge.callHandler(
+          'startOCR', data.data,
+          function(responseData) {
+            data.success(eval('(' + responseData + ')'))
+          }
+        )
+      }
+    },
+    startTIMS: function(data) {
+      if (this.vars.browserType == 1) {
+        this.vars.bridge.callHandler('startTIMS', data.data, function responseCallback(responseData) {
+          data.success(responseData);
+          console.log("JS received response:", responseData);
+        })
+      } else {
+        window.WebViewJavascriptBridge.callHandler(
+          'startTIMS', data.data,
+          function(responseData) {
+            data.success(eval('(' + responseData + ')'))
+          }
+        )
+      }
     }
-
   }
 
   function connectWebViewJavascriptBridge(callback) {
