@@ -761,7 +761,6 @@ from jssdk:v1.0.1 android:20300001;ios:20300001
 ```
     apppubs.startTIMS({
       data: {
-        "appKey": "v5g5vIoCVAFMcsOycVwC",
         "serverURL": "http://192.168.36.97:8199",
         "info": {
           "userNo": "tchzt",
