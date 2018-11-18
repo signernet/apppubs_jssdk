@@ -700,7 +700,7 @@ success回调对象格式:
 
 ## 打开OCR识别
 
-from jssdk:v1.0.1 android:20202001;ios:20202001
+from jssdk:v1.0.1 android:20300001;ios:20300001
 
 调用示例：
 
@@ -754,7 +754,7 @@ success回调对象格式:
 
 ## 打开“影像”系统
 
-from jssdk:v1.0.1 android:20202001;ios:20202001
+from jssdk:v1.0.1 android:20300001;ios:20300001
 
 调用示例：
 
