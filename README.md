@@ -781,7 +781,8 @@ from jssdk:v1.0.1 android:20300001;ios:20300001
           "userNo": "tchzt",
           "bussinessNo": "TCHZT4444",
           "billNum": "001",
-          "authority": "0"
+          "authority": "0",
+          "addSingle":"1"
         },
       success:function (obj){
         console.log(obj)
